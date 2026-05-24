@@ -19,10 +19,10 @@ export default function CoursesPage() {
           <div className={styles.heroGrid}>
             <div>
               <span className="eyebrow">Каталог професій</span>
-              <h1>Усі професії старого сайту, подані як зрозумілий каталог</h1>
+              <h1>Обери професію — почни навчання</h1>
               <p>
-                Ми перенесли знайдені професійні напрями зі старої структури й перетворили їх на картки з категоріями,
-                кваліфікаціями, практичними навичками та джерелами.
+                {categories.length} категорій і {professions.length} професій з кваліфікаціями, практичними навичками та
+                умовами вступу. Знайди свій напрям і залишай заявку.
               </p>
             </div>
             <div className={styles.searchPanel} aria-label="Навігація каталогом">
@@ -34,9 +34,12 @@ export default function CoursesPage() {
         </div>
       </section>
 
-      <section className={styles.categoryStrip}>
+      <nav className={styles.categoryStrip} aria-label="Фільтр за категоріями">
         <div className="container">
-          <div className={styles.categoryList} aria-label="Категорії професій">
+          <div className={styles.categoryList}>
+            <a className={styles.categoryActive} href="#catalog">
+              Усі професії
+            </a>
             {categories.map((category) => (
               <a key={category} href={`#${category.toLowerCase().replaceAll(' ', '-')}`}>
                 {category}
@@ -44,9 +47,9 @@ export default function CoursesPage() {
             ))}
           </div>
         </div>
-      </section>
+      </nav>
 
-      <section className={styles.catalog}>
+      <section className={styles.catalog} id="catalog">
         <div className="container">
           {categories.map((category) => (
             <div className={styles.categoryBlock} id={category.toLowerCase().replaceAll(' ', '-')} key={category}>
@@ -106,7 +109,7 @@ export default function CoursesPage() {
         <div className="container">
           <div className={styles.stepsHeader}>
             <span className="eyebrow">Вступ і наступний крок</span>
-            <h2>Сценарій вступу має бути видимим одразу після каталогу</h2>
+            <h2>Як вступити на навчання</h2>
           </div>
           <ol>
             {admissions.map((step) => (
