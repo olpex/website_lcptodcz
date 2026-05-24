@@ -1,4 +1,4 @@
-import { ExternalLink, FileText } from 'lucide-react';
+import { ArrowUpRight, ExternalLink, FileText } from 'lucide-react';
 import { documentGroups } from '../../data/site';
 import styles from './documents.module.css';
 
@@ -27,7 +27,12 @@ export default function DocumentsPage() {
                 <h2>{group.title}</h2>
                 <ul>
                   {group.items.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item.href}>
+                      <a href={item.href} target="_blank" rel="noreferrer">
+                        <span>{item.title}</span>
+                        <ArrowUpRight size={16} aria-hidden="true" />
+                      </a>
+                    </li>
                   ))}
                 </ul>
               </article>

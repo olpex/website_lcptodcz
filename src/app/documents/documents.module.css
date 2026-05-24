@@ -36,10 +36,35 @@
 }
 
 .card {
+  position: relative;
+  isolation: isolate;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: #fff;
   padding: 1.25rem;
+  box-shadow: 0 8px 22px rgba(23, 32, 42, 0.04);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.card::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(231, 242, 251, 0.8), rgba(231, 244, 238, 0));
+  content: '';
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.card:hover {
+  border-color: rgba(36, 116, 91, 0.36);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card svg {
@@ -60,8 +85,26 @@
 
 .card li {
   border-top: 1px solid var(--line);
+}
+
+.card li a {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.65rem;
+  align-items: start;
   padding-top: 0.65rem;
   color: var(--muted);
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.card li a svg {
+  color: rgba(181, 71, 53, 0.72);
+  margin-top: 0.22rem;
+}
+
+.card li a:hover {
+  color: var(--brand);
+  transform: translateX(2px);
 }
 
 .registryLink {
@@ -71,6 +114,13 @@
   margin-top: 1.5rem;
   color: var(--red);
   font-weight: 900;
+  text-decoration: underline;
+  text-decoration-color: rgba(181, 71, 53, 0.28);
+  text-underline-offset: 0.25em;
+}
+
+.registryLink:hover {
+  text-decoration-color: currentColor;
 }
 
 @media (max-width: 820px) {

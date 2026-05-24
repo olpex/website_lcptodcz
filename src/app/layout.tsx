@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import type { Metadata } from 'next';
-import { Noto_Sans, Noto_Serif_Display } from 'next/font/google';
+import { Fira_Sans_Condensed, Noto_Sans } from 'next/font/google';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -10,8 +10,9 @@ const notoSans = Noto_Sans({
   display: 'swap',
 });
 
-const notoSerifDisplay = Noto_Serif_Display({
+const firaSansCondensed = Fira_Sans_Condensed({
   subsets: ['cyrillic', 'latin'],
+  weight: ['600', '700', '800'],
   variable: '--font-display',
   display: 'swap',
 });
@@ -38,7 +39,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="uk">
-      <body className={`${notoSans.variable} ${notoSerifDisplay.variable}`}>
+      <body className={`${notoSans.variable} ${firaSansCondensed.variable}`}>
         <Header />
         <main id="main-content">{children}</main>
         <Footer />

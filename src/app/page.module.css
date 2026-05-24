@@ -5,8 +5,11 @@
 .hero {
   padding: clamp(3rem, 7vw, 6.5rem) 0 3.2rem;
   background:
+    linear-gradient(90deg, rgba(17, 63, 103, 0.05) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(17, 63, 103, 0.04) 1px, transparent 1px),
     linear-gradient(115deg, rgba(231, 242, 251, 0.9), rgba(255, 253, 248, 0.95) 48%, rgba(231, 244, 238, 0.78)),
     var(--paper);
+  background-size: 46px 46px, 46px 46px, auto;
 }
 
 .heroGrid {
@@ -202,6 +205,13 @@
   display: grid;
   gap: 1rem;
   padding: 1.15rem;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.programCard:hover {
+  border-color: rgba(36, 116, 91, 0.42);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
 }
 
 .programCard > span {
@@ -294,12 +304,24 @@
 
 .newsCard {
   overflow: hidden;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.newsCard:hover {
+  border-color: rgba(17, 63, 103, 0.28);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
 }
 
 .newsCard img {
   width: 100%;
   height: 220px;
   object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.newsCard:hover img {
+  transform: scale(1.035);
 }
 
 .newsCard div {

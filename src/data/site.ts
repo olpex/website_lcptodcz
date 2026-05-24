@@ -11,6 +11,11 @@ export type Profession = {
   sourceUrl: string;
 };
 
+export type DocumentLink = {
+  title: string;
+  href: string;
+};
+
 export type StaffMember = {
   name: string;
   role: string;
@@ -54,7 +59,7 @@ export const professions: Profession[] = [
     format: 'майстерні та практична база партнерів',
     summary: 'Підготовка до ручного та напівавтоматичного зварювання, роботи з металами, кресленнями й безпечними технологічними процесами.',
     skills: ['зварювання металів', 'охорона праці', 'читання креслень'],
-    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80',
+    image: '/images/professions/elektrogazozvarnik.jpg',
     sourceUrl: 'https://lcptodcz.lviv.ua/elektrogazozvarnik-10-17-46-28-02-2019',
   },
   {
@@ -66,7 +71,7 @@ export const professions: Profession[] = [
     format: 'практична база партнерських закладів',
     summary: 'Монтаж, обслуговування та ремонт санітарно-технічних систем, трубопроводів і устаткування.',
     skills: ['монтаж систем', 'інструменти', 'технічне обслуговування'],
-    image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80',
+    image: '/images/professions/montazhnyk-santekh-system.jpg',
     sourceUrl: 'https://lcptodcz.lviv.ua/montazhnik-sanitarnotehnichnih-sistem-i-ustatkuvannya-10-17-59-28-02-2019',
   },
   {
@@ -78,7 +83,7 @@ export const professions: Profession[] = [
     format: 'ЛКП «Львівелектротранс»',
     summary: 'Навчання керуванню трамваєм, правилам безпечного руху, роботі з пасажирами та міською інфраструктурою.',
     skills: ['керування трамваєм', 'ПДР', 'пасажирський сервіс'],
-    image: 'https://images.unsplash.com/photo-1569230516306-5a8cb5586399?auto=format&fit=crop&w=900&q=80',
+    image: '/images/professions/vodiy-tramvaya.jpg',
     sourceUrl: 'https://lcptodcz.lviv.ua/vodij-tramvaya-10-18-16-28-02-2019',
   },
   {
@@ -90,7 +95,7 @@ export const professions: Profession[] = [
     format: 'ЛКП «Львівелектротранс»',
     summary: 'Підготовка водіїв електротранспорту з практикою на рухомому складі й навчальних майданчиках.',
     skills: ['електротранспорт', 'безпека руху', 'маршрутна робота'],
-    image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=900&q=80',
+    image: '/images/professions/vodiy-troleybusa.jpg',
     sourceUrl: 'https://lcptodcz.lviv.ua/vodij-trolejbusa-10-18-28-28-02-2019',
   },
   {
@@ -102,7 +107,7 @@ export const professions: Profession[] = [
     format: 'лабораторія контрольно-касового обладнання',
     summary: 'Робота з РРО, касовими операціями, покупцями, товарними групами та правилами обліку.',
     skills: ['РРО', 'касові операції', 'клієнтський сервіс'],
-    image: 'https://rada.info/upload/users_files/36738974/gallery/large/20190103_150225.jpg',
+    image: '/images/professions/kasyr-torgovelnoho-zalu.jpg',
     sourceUrl: 'https://lcptodcz.lviv.ua/kasir-torgovelnogo-zalu-10-18-41-28-02-2019',
   },
   {
@@ -114,7 +119,7 @@ export const professions: Profession[] = [
     format: 'навчальна лабораторія та практика',
     summary: 'Товарознавство, викладка, робота з покупцями, касова дисципліна та стандарти продажів продовольчих товарів.',
     skills: ['товарознавство', 'викладка', 'обслуговування'],
-    image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80',
+    image: '/images/professions/prodavec-prodovolchykh-tovariv.jpg',
     sourceUrl: 'https://lcptodcz.lviv.ua/prodavec-prodovolchih-tovariv-10-18-53-28-02-2019',
   },
   {
@@ -126,7 +131,7 @@ export const professions: Profession[] = [
     format: 'навчальна лабораторія та практика',
     summary: 'Продаж, консультування, товарознавство непродовольчих груп і ведення торговельних процесів.',
     skills: ['консультації', 'торговельні процеси', 'облік'],
-    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80',
+    image: '/images/professions/prodavec-neprodovolchykh-tovariv.jpg',
     sourceUrl: 'https://lcptodcz.lviv.ua/prodavec-neprodovolchih-tovariv-10-19-06-28-02-2019',
   },
   {
@@ -138,7 +143,7 @@ export const professions: Profession[] = [
     format: 'навчальна та виробнича база',
     summary: 'Експлуатація котельного обладнання, контроль режимів, безпека праці й технічне обслуговування.',
     skills: ['котельне обладнання', 'режими роботи', 'безпека'],
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80',
+    image: '/images/professions/operator-kotelni.jpg',
     sourceUrl: 'https://lcptodcz.lviv.ua/operator-kotelni-10-19-16-28-02-2019',
   },
   {
@@ -150,7 +155,7 @@ export const professions: Profession[] = [
     format: 'виробнича практика',
     summary: 'Підготовка до роботи з теплогенеруючим обладнанням, контролем параметрів і безпечною експлуатацією котельні.',
     skills: ['теплотехніка', 'експлуатація', 'контроль параметрів'],
-    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=900&q=80',
+    image: '/images/professions/mashynist-kochehar-kotelni.jpg',
     sourceUrl: 'https://lcptodcz.lviv.ua/mashinist-kochegar-kotelni-10-19-28-28-02-2019',
   },
   {
@@ -162,7 +167,7 @@ export const professions: Profession[] = [
     format: 'машино-тракторні двори та полігони партнерів',
     summary: 'Керування сільськогосподарською технікою, технічне обслуговування, агротехнології та безпека робіт.',
     skills: ['керування технікою', 'агротехнології', 'ТО машин'],
-    image: 'https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=900&q=80',
+    image: '/images/professions/traktoryst-mashynist.jpg',
     sourceUrl: 'https://lcptodcz.lviv.ua/traktoristmashinist-silskogospodarskogo-virobnictva-10-19-40-28-02-2019',
   },
   {
@@ -174,7 +179,7 @@ export const professions: Profession[] = [
     format: 'практичні заняття',
     summary: 'Робота з кабельною продукцією, монтажем, інструментами, технологічними операціями та якістю виробництва.',
     skills: ['кабельні роботи', 'монтаж', 'контроль якості'],
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80',
+    image: '/images/professions/monter-kabelnoho-vyrobnytstva.jpg',
     sourceUrl: 'https://lcptodcz.lviv.ua/monter-kabelnogo-virobnictva-10-19-51-28-02-2019',
   },
   {
@@ -186,7 +191,7 @@ export const professions: Profession[] = [
     format: 'виробнича майстерня перукарів',
     summary: 'Стрижки, фарбування, зачіски, санітарія, матеріали, професійна етика та робота з клієнтом.',
     skills: ['стрижки', 'фарбування', 'клієнтський сервіс'],
-    image: 'https://rada.info/upload/users_files/36738974/gallery/large/IMG_5861.jpg',
+    image: '/images/professions/perukar-modelier.jpg',
     sourceUrl: 'https://lcptodcz.lviv.ua/perukar-perukarmodeler-10-20-03-28-02-2019',
   },
   {
@@ -198,7 +203,7 @@ export const professions: Profession[] = [
     format: 'виробнича майстерня манікюрників',
     summary: 'Догляд за руками, сучасні техніки манікюру, санітарні вимоги, матеріали та стандарти сервісу.',
     skills: ['манікюр', 'гігієна', 'матеріали'],
-    image: 'https://rada.info/upload/users_files/36738974/gallery/large/20190103_154914.jpg',
+    image: '/images/professions/manikiurnyk.jpg',
     sourceUrl: 'https://lcptodcz.lviv.ua/manikjurnik-10-20-18-28-02-2019',
   },
   {
@@ -210,7 +215,7 @@ export const professions: Profession[] = [
     format: 'виробнича майстерня візажистів',
     summary: 'Основи макіяжу, колористика, робота з клієнтом, косметичні матеріали та професійна гігієна.',
     skills: ['макіяж', 'колористика', 'гігієна'],
-    image: 'https://rada.info/upload/users_files/36738974/gallery/large/20190103_154453.jpg',
+    image: '/images/professions/vizazhist.jpg',
     sourceUrl: 'https://lcptodcz.lviv.ua/vizazhist-10-20-30-28-02-2019',
   },
   {
@@ -222,7 +227,7 @@ export const professions: Profession[] = [
     format: 'навчання та практичні аграрні модулі',
     summary: 'Основи фермерської справи, агровиробництво, підприємництво, планування й управління господарством.',
     skills: ['агробізнес', 'планування', 'виробництво'],
-    image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=900&q=80',
+    image: '/images/professions/fermer.jpg',
     sourceUrl: 'https://lcptodcz.lviv.ua/fermer-10-20-41-28-02-2019',
   },
   {
@@ -234,7 +239,7 @@ export const professions: Profession[] = [
     format: 'майстерні швейної справи',
     summary: 'Пошиття виробів, робота зі швейним обладнанням, матеріалами, машинною вишивкою та виробничою дисципліною.',
     skills: ['пошиття', 'обладнання', 'технології одягу'],
-    image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=900&q=80',
+    image: '/images/professions/shvachka.jpg',
     sourceUrl: 'https://lcptodcz.lviv.ua/shvachka-14-49-31-11-10-2024',
   },
   {
@@ -246,7 +251,7 @@ export const professions: Profession[] = [
     format: 'компʼютерний клас / змішане навчання',
     summary: 'Компʼютерна обробка інформації, офісне ПЗ, цифрова безпека, базові IT-інструменти й робота з даними.',
     skills: ['офісне ПЗ', 'дані', 'цифрова безпека'],
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80',
+    image: '/images/professions/operator-obrobky-informatsii.jpg',
     sourceUrl: 'https://lcptodcz.lviv.ua/operator-z-obrobki   informacii ta-programnogo-zabezpechennya-10-41-58-31-07-2020',
   },
 ];
@@ -464,33 +469,33 @@ export const documentGroups = [
   {
     title: 'Закони України',
     items: [
-      'Про загальнообовʼязкове державне соціальне страхування на випадок безробіття',
-      'Про зайнятість населення',
-      'Про освіту',
-      'Про професійну (професійно-технічну) освіту',
-      'Про звернення громадян',
-      'Про доступ до публічної інформації',
-      'Про захист персональних даних',
+      { title: 'Про загальнообовʼязкове державне соціальне страхування на випадок безробіття', href: 'https://zakon.rada.gov.ua/laws/show/1533-14' },
+      { title: 'Про зайнятість населення', href: 'https://zakon.rada.gov.ua/laws/show/5067-17' },
+      { title: 'Про освіту', href: 'https://zakon.rada.gov.ua/laws/show/2145-19' },
+      { title: 'Про професійну (професійно-технічну) освіту', href: 'https://zakon.rada.gov.ua/laws/show/103/98-%D0%B2%D1%80' },
+      { title: 'Про звернення громадян', href: 'https://zakon.rada.gov.ua/laws/show/393/96-%D0%B2%D1%80' },
+      { title: 'Про доступ до публічної інформації', href: 'https://zakon.rada.gov.ua/laws/show/2939-17' },
+      { title: 'Про захист персональних даних', href: 'https://zakon.rada.gov.ua/laws/show/2297-17' },
     ],
   },
   {
     title: 'Постанови Кабінету Міністрів України',
     items: [
-      'Про державні стандарти професійно-технічної освіти',
-      'Про ступеневу професійно-технічну освіту',
-      'Про ліцензування, атестацію та акредитацію навчальних закладів',
-      'Про професійне навчання учасників бойових дій та осіб з інвалідністю внаслідок війни',
-      'Про перелік платних послуг закладів освіти',
+      { title: 'Про державні стандарти професійно-технічної освіти', href: 'https://zakon.rada.gov.ua/laws/show/1135-2002-%D0%BF' },
+      { title: 'Про ступеневу професійно-технічну освіту', href: 'https://zakon.rada.gov.ua/laws/show/956-99-%D0%BF' },
+      { title: 'Про ліцензування, атестацію та акредитацію навчальних закладів', href: 'https://zakon.rada.gov.ua/laws/show/200-96-%D0%BF' },
+      { title: 'Про професійне навчання учасників бойових дій та осіб з інвалідністю внаслідок війни', href: 'https://zakon.rada.gov.ua/laws/show/432-2017-%D0%BF' },
+      { title: 'Про перелік платних послуг закладів освіти', href: 'https://zakon.rada.gov.ua/laws/show/796-2010-%D0%BF' },
     ],
   },
   {
     title: 'Нормативні документи міністерств',
     items: [
-      'Перелік професій і спеціальностей для навчання за ваучером',
-      'Порядок професійної підготовки, перепідготовки та підвищення кваліфікації зареєстрованих безробітних',
-      'Положення про професійне навчання працівників на виробництві',
-      'Положення про дистанційне навчання',
-      'Державний класифікатор професій',
+      { title: 'Перелік професій і спеціальностей для навчання за ваучером', href: 'https://zakon.rada.gov.ua/laws/show/z0690-17' },
+      { title: 'Порядок професійної підготовки, перепідготовки та підвищення кваліфікації зареєстрованих безробітних', href: 'https://zakon.rada.gov.ua/laws/show/z1029-13' },
+      { title: 'Положення про професійне навчання працівників на виробництві', href: 'https://zakon.rada.gov.ua/laws/show/z0446-08' },
+      { title: 'Положення про дистанційне навчання', href: 'https://zakon.rada.gov.ua/laws/show/z0703-13' },
+      { title: 'Державний класифікатор професій', href: 'https://zakon.rada.gov.ua/rada/show/va327609-10' },
     ],
   },
 ];

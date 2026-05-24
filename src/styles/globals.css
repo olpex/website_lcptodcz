@@ -12,10 +12,11 @@
   --red: #b54735;
   --yellow: #f2c94c;
   --shadow: 0 18px 48px rgba(23, 32, 42, 0.1);
+  --shadow-hover: 0 24px 70px rgba(17, 63, 103, 0.14);
   --max-width: 1180px;
   --radius: 8px;
   --font-family: 'Noto Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  --font-display: 'Noto Serif Display', Georgia, 'Times New Roman', serif;
+  --font-display: 'Fira Sans Condensed', 'Noto Sans', 'Segoe UI', sans-serif;
 }
 
 * {
@@ -44,7 +45,7 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0;
   text-wrap: balance;
 }
@@ -114,8 +115,8 @@ main {
 .eyebrow {
   color: var(--green);
   font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-weight: 900;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -130,11 +131,13 @@ main {
   padding: 0.78rem 1.05rem;
   font-weight: 800;
   line-height: 1.1;
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  box-shadow: 0 0 0 rgba(23, 32, 42, 0);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
 }
 
 .button:hover {
   transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(23, 32, 42, 0.08);
 }
 
 .buttonPrimary {
