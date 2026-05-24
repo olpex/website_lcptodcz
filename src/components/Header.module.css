@@ -1,0 +1,90 @@
+.header {
+  width: 100%;
+}
+
+.topBar {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+}
+
+.topBarContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contactInfo {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.contactInfo span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.accessibility button {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.mainNav {
+  background: white;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.navLinks {
+  display: flex;
+  gap: 2rem;
+}
+
+.navLinks a {
+  font-weight: 500;
+  color: var(--text-color);
+  transition: color 0.2s;
+}
+
+.navLinks a:hover {
+  color: var(--accent-color);
+}
+
+.mobileMenuBtn {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+  
+  .mobileMenuBtn {
+    display: block;
+  }
+  
+  .contactInfo span:not(:first-child) {
+    display: none;
+  }
+}
