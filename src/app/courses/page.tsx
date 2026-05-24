@@ -1,75 +1,119 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Clock, MapPin, Send } from 'lucide-react';
-import { courses } from '../../data/site';
+import { ArrowRight, Clock, ExternalLink, MapPin, Search, Send, Tag } from 'lucide-react';
+import { admissions, professions } from '../../data/site';
 import styles from './courses.module.css';
 
 export const metadata = {
-  title: 'Навчальні програми',
-  description: 'Каталог напрямів професійного навчання Львівського центру ПТО ДСЗ.',
+  title: 'Професії та навчальні програми',
+  description: 'Повний перелік професій Львівського центру ПТО ДСЗ із картками, фото, кваліфікаціями та посиланнями на джерела.',
 };
+
+const categories = Array.from(new Set(professions.map((profession) => profession.category)));
 
 export default function CoursesPage() {
   return (
     <div className={styles.page}>
       <section className={styles.hero}>
         <div className="container">
-          <span className="eyebrow">Каталог навчання</span>
-          <h1>Оберіть програму під вашу наступну роботу</h1>
-          <p>Першу версію каталогу сфокусовано на напрямах, які вже звучать у новинах та матеріалах центру. Далі каталог можна підключити до CMS або EDBO-джерел.</p>
+          <div className={styles.heroGrid}>
+            <div>
+              <span className="eyebrow">Каталог професій</span>
+              <h1>Усі професії старого сайту, подані як зрозумілий каталог</h1>
+              <p>
+                Ми перенесли знайдені професійні напрями зі старої структури й перетворили їх на картки з категоріями,
+                кваліфікаціями, практичними навичками та джерелами.
+              </p>
+            </div>
+            <div className={styles.searchPanel} aria-label="Навігація каталогом">
+              <Search size={22} aria-hidden="true" />
+              <strong>{professions.length} професій</strong>
+              <span>{categories.length} категорій: технічні напрями, транспорт, торгівля, сфера послуг, агросектор, IT.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.categoryStrip}>
+        <div className="container">
+          <div className={styles.categoryList} aria-label="Категорії професій">
+            {categories.map((category) => (
+              <a key={category} href={`#${category.toLowerCase().replaceAll(' ', '-')}`}>
+                {category}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className={styles.catalog}>
         <div className="container">
-          <div className={styles.grid}>
-            {courses.map((course) => (
-              <article className={styles.card} key={course.title}>
-                <div className={styles.cardTop}>
-                  <span>{course.group}</span>
-                  <h2>{course.title}</h2>
-                  <p>{course.outcome}</p>
-                </div>
-                <dl className={styles.meta}>
-                  <div>
-                    <Clock size={18} aria-hidden="true" />
-                    <dt>Тривалість</dt>
-                    <dd>{course.duration}</dd>
-                  </div>
-                  <div>
-                    <MapPin size={18} aria-hidden="true" />
-                    <dt>Формат</dt>
-                    <dd>{course.format}</dd>
-                  </div>
-                </dl>
-                <Link className="button buttonPrimary" href="/contacts">
-                  <Send size={17} aria-hidden="true" />
-                  Запитати про набір
-                </Link>
-              </article>
-            ))}
-          </div>
+          {categories.map((category) => (
+            <div className={styles.categoryBlock} id={category.toLowerCase().replaceAll(' ', '-')} key={category}>
+              <div className={styles.categoryHeader}>
+                <Tag size={20} aria-hidden="true" />
+                <h2>{category}</h2>
+              </div>
+              <div className={styles.grid}>
+                {professions.filter((profession) => profession.category === category).map((profession) => (
+                  <article className={styles.card} key={profession.slug}>
+                    <div className={styles.imageWrap}>
+                      <Image
+                        src={profession.image}
+                        alt={`Професія: ${profession.title}`}
+                        width={900}
+                        height={620}
+                      />
+                      <span>{profession.category}</span>
+                    </div>
+                    <div className={styles.cardBody}>
+                      <h3>{profession.title}</h3>
+                      <p>{profession.summary}</p>
+                      <dl className={styles.meta}>
+                        <div>
+                          <Clock size={17} aria-hidden="true" />
+                          <dt>Тривалість</dt>
+                          <dd>{profession.duration}</dd>
+                        </div>
+                        <div>
+                          <MapPin size={17} aria-hidden="true" />
+                          <dt>Формат</dt>
+                          <dd>{profession.format}</dd>
+                        </div>
+                      </dl>
+                      <ul className={styles.skills}>
+                        {profession.skills.map((skill) => <li key={skill}>{skill}</li>)}
+                      </ul>
+                    </div>
+                    <div className={styles.cardActions}>
+                      <Link className="button buttonPrimary" href="/contacts">
+                        <Send size={17} aria-hidden="true" />
+                        Запитати про набір
+                      </Link>
+                      <a href={profession.sourceUrl} target="_blank" rel="noreferrer" aria-label={`Сторінка старого сайту: ${profession.title}`}>
+                        <ExternalLink size={18} aria-hidden="true" />
+                      </a>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
       <section className={styles.steps}>
         <div className="container">
           <div className={styles.stepsHeader}>
-            <span className="eyebrow">Як вступити</span>
-            <h2>Три кроки без зайвої бюрократії</h2>
+            <span className="eyebrow">Вступ і наступний крок</span>
+            <h2>Сценарій вступу має бути видимим одразу після каталогу</h2>
           </div>
           <ol>
-            <li>
-              <strong>Зверніться до центру</strong>
-              <span>Опишіть попередній досвід, бажану професію і зручний формат навчання.</span>
-            </li>
-            <li>
-              <strong>Уточніть умови фінансування</strong>
-              <span>Для зареєстрованих безробітних, ветеранів, роботодавців і слухачів можуть діяти різні механізми.</span>
-            </li>
-            <li>
-              <strong>Почніть практику</strong>
-              <span>Навчання відбувається з опорою на майстерні, полігони, реальні задачі й підготовку до роботи.</span>
-            </li>
+            {admissions.map((step) => (
+              <li key={step}>
+                <span>{step}</span>
+              </li>
+            ))}
           </ol>
           <Link className={styles.textLink} href="/contacts">
             Отримати консультацію <ArrowRight size={17} aria-hidden="true" />

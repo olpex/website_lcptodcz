@@ -11,6 +11,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'lcptodcz.lviv.ua',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
     ],
   },
 };
