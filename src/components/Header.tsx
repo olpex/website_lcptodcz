@@ -1,40 +1,48 @@
 import Link from 'next/link';
+import { Mail, MapPin, Phone } from 'lucide-react';
+import { contact, navItems } from '../data/site';
 import styles from './Header.module.css';
-import { Menu, Phone, Mail, MapPin } from 'lucide-react';
 
 const Header = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.topBar}>
+      <a className="skipLink" href="#main-content">До основного вмісту</a>
+      <div className={styles.serviceBar}>
         <div className="container">
-          <div className={styles.topBarContent}>
-            <div className={styles.contactInfo}>
-              <span><Phone size={14} /> (032) 232-22-30</span>
-              <span><Mail size={14} /> lcptodcz@ukr.net</span>
-              <span><MapPin size={14} /> м. Львів, вул. Кн. Ольги, 122</span>
-            </div>
-            <div className={styles.accessibility}>
-              <button>Версія для людей з вадами зору</button>
-            </div>
+          <div className={styles.serviceGrid}>
+            <a href={`tel:${contact.phonePrimary.replace(/[^\d+]/g, '')}`}>
+              <Phone size={15} aria-hidden="true" />
+              {contact.phonePrimary}
+            </a>
+            <a href={`mailto:${contact.email}`}>
+              <Mail size={15} aria-hidden="true" />
+              {contact.email}
+            </a>
+            <span>
+              <MapPin size={15} aria-hidden="true" />
+              {contact.address}
+            </span>
           </div>
         </div>
       </div>
       <div className={styles.mainNav}>
         <div className="container">
-          <nav className={styles.nav}>
-            <Link href="/" className={styles.logo}>
-              <div className={styles.logoTitle}>ЛЦПТО ДСЗ</div>
+          <nav className={styles.nav} aria-label="Головна навігація">
+            <Link href="/" className={styles.logo} aria-label="На головну ЛЦПТО ДСЗ">
+              <span className={styles.logoMark}>ЛЦ</span>
+              <span>
+                <strong>{contact.shortName}</strong>
+                <small>Професійна освіта державної служби зайнятості</small>
+              </span>
             </Link>
             <ul className={styles.navLinks}>
-              <li><Link href="/about">Про центр</Link></li>
-              <li><Link href="/courses">Навчання</Link></li>
-              <li><Link href="/professions">Професії</Link></li>
-              <li><Link href="/news">Новини</Link></li>
-              <li><Link href="/contacts">Контакти</Link></li>
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}>{item.label}</Link>
+                </li>
+              ))}
             </ul>
-            <button className={styles.mobileMenuBtn}>
-              <Menu />
-            </button>
+            <Link className={styles.navCta} href="/documents">Документи</Link>
           </nav>
         </div>
       </div>

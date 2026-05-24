@@ -4,8 +4,18 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Львівський центр ПТО ДСЗ',
-  description: 'Офіційний сайт Львівського центру професійно-технічної освіти державної служби зайнятості',
+  metadataBase: new URL('https://lcptodcz.lviv.ua'),
+  title: {
+    default: 'ЛЦПТО ДСЗ | Професійне навчання у Львові',
+    template: '%s | ЛЦПТО ДСЗ',
+  },
+  description: 'Львівський центр професійно-технічної освіти ДСЗ: професійне навчання дорослих, підвищення кваліфікації, курси для роботодавців та безробітних.',
+  openGraph: {
+    title: 'ЛЦПТО ДСЗ',
+    description: 'Практична професійна освіта у Львові для слухачів, роботодавців і громад.',
+    locale: 'uk_UA',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
@@ -17,7 +27,7 @@ export default function RootLayout({
     <html lang="uk">
       <body>
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>

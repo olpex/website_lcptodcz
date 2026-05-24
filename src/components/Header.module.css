@@ -1,90 +1,143 @@
 .header {
-  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(255, 253, 248, 0.96);
+  box-shadow: 0 1px 0 rgba(17, 63, 103, 0.12);
+  backdrop-filter: blur(14px);
 }
 
-.topBar {
-  background: var(--primary-color);
-  color: white;
-  padding: 0.5rem 0;
-  font-size: 0.85rem;
+.serviceBar {
+  background: var(--brand-strong);
+  color: #fff;
+  font-size: 0.86rem;
 }
 
-.topBarContent {
+.serviceGrid {
   display: flex;
+  min-height: 38px;
+  align-items: center;
   justify-content: space-between;
+  gap: 1rem;
+}
+
+.serviceGrid a,
+.serviceGrid span {
+  display: inline-flex;
+  min-width: 0;
   align-items: center;
-}
-
-.contactInfo {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.contactInfo span {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.accessibility button {
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-  cursor: pointer;
+  gap: 0.45rem;
+  color: rgba(255, 255, 255, 0.92);
+  white-space: nowrap;
 }
 
 .mainNav {
-  background: white;
-  border-bottom: 1px solid var(--border-color);
-  padding: 1rem 0;
+  border-bottom: 1px solid rgba(17, 63, 103, 0.1);
 }
 
 .nav {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  min-height: 78px;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
+  gap: 1.25rem;
 }
 
 .logo {
-  font-weight: 800;
-  font-size: 1.5rem;
-  color: var(--primary-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--brand);
+}
+
+.logoMark {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 2px solid var(--brand);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--brand);
+  font-weight: 900;
+}
+
+.logo strong,
+.logo small {
+  display: block;
+}
+
+.logo strong {
+  font-size: 1.14rem;
+  line-height: 1.1;
+}
+
+.logo small {
+  max-width: 245px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.25;
 }
 
 .navLinks {
   display: flex;
-  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem;
 }
 
 .navLinks a {
-  font-weight: 500;
-  color: var(--text-color);
-  transition: color 0.2s;
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  border-radius: 6px;
+  padding: 0.55rem 0.75rem;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
 .navLinks a:hover {
-  color: var(--accent-color);
+  background: var(--blue-soft);
+  color: var(--brand);
 }
 
-.mobileMenuBtn {
-  display: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
+.navCta {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(36, 116, 91, 0.3);
+  border-radius: 6px;
+  background: var(--green-soft);
+  color: var(--green);
+  padding: 0.6rem 0.9rem;
+  font-weight: 800;
+  white-space: nowrap;
 }
 
-@media (max-width: 768px) {
+.navCta:hover {
+  border-color: var(--green);
+}
+
+@media (max-width: 920px) {
+  .serviceGrid {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-block: 0.35rem;
+  }
+
+  .nav {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding-block: 0.9rem;
+  }
+
   .navLinks {
-    display: none;
+    justify-content: flex-start;
   }
-  
-  .mobileMenuBtn {
-    display: block;
-  }
-  
-  .contactInfo span:not(:first-child) {
-    display: none;
+
+  .navCta {
+    width: fit-content;
   }
 }

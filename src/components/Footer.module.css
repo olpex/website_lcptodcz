@@ -1,45 +1,114 @@
 .footer {
-  background: #222;
-  color: #eee;
-  padding: 4rem 0 2rem;
-  margin-top: 4rem;
+  background: var(--brand-strong);
+  color: #eef6fb;
+  padding: 0 0 2rem;
+}
+
+.callout {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius);
+  background: #fffdf8;
+  color: var(--ink);
+  padding: 1.4rem;
+  transform: translateY(-50%);
+  box-shadow: var(--shadow);
+}
+
+.callout h2 {
+  max-width: 720px;
+  margin-top: 0.35rem;
+  color: var(--brand);
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  line-height: 1.18;
+}
+
+.calloutActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .footerGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3rem;
-  margin-bottom: 3rem;
+  grid-template-columns: minmax(260px, 1.4fr) minmax(180px, 0.8fr) minmax(260px, 1fr);
+  gap: 2rem;
+  margin-top: -1.8rem;
 }
 
-.footerInfo h3 {
-  color: white;
-  margin-bottom: 1rem;
+.brandBlock h3,
+.footerGrid h4 {
+  margin-bottom: 0.8rem;
+  color: #fff;
 }
 
-.footerLinks h4, .footerContacts h4 {
-  color: white;
-  margin-bottom: 1.2rem;
+.brandBlock p,
+.contacts p,
+.footerGrid a {
+  color: rgba(238, 246, 251, 0.82);
 }
 
-.footerLinks ul {
+.brandBlock p {
+  max-width: 520px;
+}
+
+.footerGrid ul {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.footerGrid a:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.contacts {
+  display: grid;
+  align-content: start;
+  gap: 0.55rem;
+}
+
+.contacts p {
   display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.5rem;
 }
 
-.footerLinks a:hover {
-  color: var(--accent-color);
-}
-
-.footerContacts p {
-  margin-bottom: 0.5rem;
+.contacts svg {
+  flex: 0 0 auto;
+  color: var(--yellow);
+  margin-top: 0.25rem;
 }
 
 .footerBottom {
-  border-top: 1px solid #444;
-  padding-top: 2rem;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  margin-top: 2rem;
+  padding-top: 1.1rem;
+  color: rgba(238, 246, 251, 0.72);
   font-size: 0.9rem;
-  color: #888;
+}
+
+@media (max-width: 880px) {
+  .callout,
+  .footerGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .callout {
+    transform: translateY(-22%);
+  }
+
+  .footerGrid {
+    margin-top: 0;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+  }
 }

@@ -1,65 +1,54 @@
+import Image from 'next/image';
+import { Award, CheckCircle2, Factory, GraduationCap, UsersRound } from 'lucide-react';
+import { contact, gallery } from '../../data/site';
 import styles from './about.module.css';
-import { Target, History, Award, CheckCircle } from 'lucide-react';
+
+export const metadata = {
+  title: 'Про центр',
+  description: 'Місія, сильні сторони та контактна інформація Львівського центру ПТО ДСЗ.',
+};
 
 export default function AboutPage() {
   return (
-    <div className={styles.aboutPage}>
+    <div className={styles.page}>
       <section className={styles.hero}>
         <div className="container">
-          <h1>Про Львівський центр ПТО ДСЗ</h1>
-          <p>Ми є частиною державної системи професійно-технічної освіти, що спеціалізується на навчанні дорослого населення.</p>
+          <div className={styles.heroGrid}>
+            <div>
+              <span className="eyebrow">Про центр</span>
+              <h1>{contact.name}</h1>
+              <p>Державний освітній майданчик, який поєднує потреби людей, служби зайнятості та роботодавців Львівщини.</p>
+            </div>
+            <Image src={gallery[1].src} alt={gallery[1].alt} width={620} height={420} priority />
+          </div>
         </div>
       </section>
 
       <section className={styles.mission}>
         <div className="container">
           <div className={styles.missionGrid}>
-            <div className={styles.missionText}>
-              <h2>Наша місія</h2>
-              <p>Надання якісних освітніх послуг, що відповідають сучасним вимогам ринку праці, для швидкого та ефективного працевлаштування наших випускників.</p>
-              <ul className={styles.features}>
-                <li><CheckCircle size={20} color="var(--accent-color)" /> Безкоштовне навчання для безробітних</li>
-                <li><CheckCircle size={20} color="var(--accent-color)" /> Видача сертифікатів державного зразка</li>
-                <li><CheckCircle size={20} color="var(--accent-color)" /> Сучасні навчальні бази та полігони</li>
-                <li><CheckCircle size={20} color="var(--accent-color)" /> Допомога з проживанням у гуртожитку</li>
-              </ul>
+            <div>
+              <span className="eyebrow">Місія</span>
+              <h2>Навчати так, щоб професія ставала практичним шансом</h2>
+              <p>Центр допомагає дорослим людям швидко опанувати затребувані навички, підтвердити кваліфікацію та впевненіше повернутися на ринок праці.</p>
             </div>
-            <div className={styles.missionIcon}>
-              <Target size={200} opacity={0.1} />
-            </div>
+            <ul>
+              <li><CheckCircle2 size={20} aria-hidden="true" /> Професійна освіта з опорою на державні стандарти.</li>
+              <li><CheckCircle2 size={20} aria-hidden="true" /> Практичні майстерні, полігони та навчальні лабораторії.</li>
+              <li><CheckCircle2 size={20} aria-hidden="true" /> Програми для безробітних, роботодавців, ветеранів і дорослих слухачів.</li>
+              <li><CheckCircle2 size={20} aria-hidden="true" /> Оновлення напрямів під реальні потреби економіки.</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      <section className={styles.statsSection}>
+      <section className={styles.stats}>
         <div className="container">
           <div className={styles.statsGrid}>
-            <div className={styles.statBox}>
-              <h3>2003</h3>
-              <p>Рік заснування</p>
-            </div>
-            <div className={styles.statBox}>
-              <h3>100+</h3>
-              <p>Досвідчених майстрів</p>
-            </div>
-            <div className={styles.statBox}>
-              <h3>85%</h3>
-              <p>Рівень працевлаштування</p>
-            </div>
-            <div className={styles.statBox}>
-              <h3>10</h3>
-              <p>Локацій навчання</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.history}>
-        <div className="container">
-          <div className={styles.historyContent}>
-            <History size={48} className={styles.historyIcon} />
-            <h2>Історія та розвиток</h2>
-            <p>За понад 20 років роботи ми пройшли шлях від невеликого навчального закладу до одного з провідних центрів професійно-технічної освіти в Україні. Сьогодні наш центр має сучасні лабораторії, власні полігони для навчання водіїв та операторів спецтехніки, а також потужну базу для підготовки фахівців сфери послуг та ІТ.</p>
+            <div><Award size={28} aria-hidden="true" /><strong>2003</strong><span>рік заснування</span></div>
+            <div><GraduationCap size={28} aria-hidden="true" /><strong>ПТО</strong><span>державна система освіти</span></div>
+            <div><Factory size={28} aria-hidden="true" /><strong>Skills4Recovery</strong><span>модернізація програм і обладнання</span></div>
+            <div><UsersRound size={28} aria-hidden="true" /><strong>Люди</strong><span>слухачі, бізнес, громади</span></div>
           </div>
         </div>
       </section>
