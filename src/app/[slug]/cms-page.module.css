@@ -1,0 +1,77 @@
+.page {
+  background: var(--paper);
+}
+
+.hero,
+.content {
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+}
+
+.hero {
+  background: linear-gradient(110deg, #fffdf8, var(--blue-soft));
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  color: var(--red);
+  font-weight: 900;
+}
+
+.hero h1 {
+  max-width: 920px;
+  margin: 0.65rem 0 1rem;
+  color: var(--brand-strong);
+  font-size: clamp(2.2rem, 5vw, 4.6rem);
+  line-height: 0.98;
+}
+
+.hero p {
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 1.12rem;
+}
+
+.content {
+  padding-bottom: 8rem;
+}
+
+.article,
+.materials {
+  max-width: 860px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  padding: clamp(1.2rem, 3vw, 1.8rem);
+  box-shadow: 0 8px 22px rgba(23, 32, 42, 0.04);
+}
+
+.article p + p {
+  margin-top: 1rem;
+}
+
+.materials {
+  margin-top: 1rem;
+}
+
+.materials h2 {
+  margin-bottom: 0.8rem;
+  color: var(--brand);
+  font-family: var(--font-family);
+  font-size: 1.25rem;
+}
+
+.materials ul {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.materials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--red);
+  font-weight: 900;
+}

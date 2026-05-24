@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Clock, ExternalLink, MapPin, Search, Send, Tag } from 'lucide-react';
+import { ArrowRight, Clock, MapPin, Search, Send, Tag } from 'lucide-react';
 import { admissions, professions } from '../../data/site';
 import styles from './courses.module.css';
 
@@ -90,9 +90,9 @@ export default function CoursesPage() {
                         <Send size={17} aria-hidden="true" />
                         Запитати про набір
                       </Link>
-                      <a href={profession.sourceUrl} target="_blank" rel="noreferrer" aria-label={`Сторінка старого сайту: ${profession.title}`}>
-                        <ExternalLink size={18} aria-hidden="true" />
-                      </a>
+                      <Link href={`/courses/${profession.slug}`} aria-label={`Опис професії: ${profession.title}`}>
+                        <ArrowRight size={18} aria-hidden="true" />
+                      </Link>
                     </div>
                   </article>
                 ))}

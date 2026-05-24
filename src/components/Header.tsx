@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { contact, navItems } from '../data/site';
+import { getCmsMenuItems } from '../lib/cms';
 import styles from './Header.module.css';
 
 const Header = () => {
+  const menuItems = [...navItems, ...getCmsMenuItems()];
+
   return (
     <header className={styles.header}>
       <a className="skipLink" href="#main-content">До основного вмісту</a>
@@ -36,7 +39,7 @@ const Header = () => {
               </span>
             </Link>
             <ul className={styles.navLinks}>
-              {navItems.map((item) => (
+              {menuItems.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href}>{item.label}</Link>
                 </li>

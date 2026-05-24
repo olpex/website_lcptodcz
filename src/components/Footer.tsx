@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { contact, navItems } from '../data/site';
+import { getCmsMenuItems } from '../lib/cms';
 import styles from './Footer.module.css';
 
 const Footer = () => {
+  const menuItems = [...navItems, ...getCmsMenuItems()];
+
   return (
     <footer className={styles.footer}>
       <div className="container">
@@ -32,7 +35,7 @@ const Footer = () => {
           <nav aria-label="Нижня навігація">
             <h4>Розділи</h4>
             <ul>
-              {navItems.map((item) => (
+              {menuItems.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href}>{item.label}</Link>
                 </li>
