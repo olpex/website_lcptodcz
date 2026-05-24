@@ -20,9 +20,11 @@ type AdminPageProps = {
   };
 };
 
-export default function AdminPage({ searchParams }: AdminPageProps) {
+export const dynamic = 'force-dynamic';
+
+export default async function AdminPage({ searchParams }: AdminPageProps) {
   const authenticated = isAdminAuthenticated();
-  const content = readCmsContent();
+  const content = await readCmsContent();
 
   if (!authenticated) {
     return (

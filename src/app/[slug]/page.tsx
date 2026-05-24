@@ -10,17 +10,19 @@ type PageProps = {
   };
 };
 
-export function generateMetadata({ params }: PageProps) {
-  const page = getCmsPage(params.slug);
+export const dynamic = 'force-dynamic';
+
+export async function generateMetadata({ params }: PageProps) {
+  const page = await getCmsPage(params.slug);
   return {
     title: page ? page.title : 'Сторінка',
     description: page?.summary,
   };
 }
 
-export default function CmsPublicPage({ params }: PageProps) {
-  const page = getCmsPage(params.slug);
-  const materials = readCmsContent().materials;
+export default async function CmsPublicPage({ params }: PageProps) {
+  const page = await getCmsPage(params.slug);
+  const materials = (await readCmsContent()).materials;
 
   if (!page) {
     notFound();

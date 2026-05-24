@@ -4,8 +4,8 @@ import { contact, navItems } from '../data/site';
 import { getCmsMenuItems } from '../lib/cms';
 import styles from './Header.module.css';
 
-const Header = () => {
-  const menuItems = [...navItems, ...getCmsMenuItems()];
+const Header = async () => {
+  const menuItems = [...navItems, ...(await getCmsMenuItems())];
 
   return (
     <header className={styles.header}>

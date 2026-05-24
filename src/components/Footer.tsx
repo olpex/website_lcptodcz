@@ -4,8 +4,8 @@ import { contact, navItems } from '../data/site';
 import { getCmsMenuItems } from '../lib/cms';
 import styles from './Footer.module.css';
 
-const Footer = () => {
-  const menuItems = [...navItems, ...getCmsMenuItems()];
+const Footer = async () => {
+  const menuItems = [...navItems, ...(await getCmsMenuItems())];
 
   return (
     <footer className={styles.footer}>

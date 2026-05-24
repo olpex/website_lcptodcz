@@ -24,7 +24,7 @@ export async function logoutAction() {
 }
 
 export async function createPageAction(formData: FormData) {
-  const page = upsertCmsPage({
+  const page = await upsertCmsPage({
     title: stringValue(formData, 'title'),
     slug: stringValue(formData, 'slug'),
     menuLabel: stringValue(formData, 'menuLabel'),
@@ -40,7 +40,7 @@ export async function createPageAction(formData: FormData) {
 }
 
 export async function createMenuItemAction(formData: FormData) {
-  addCmsMenuItem({
+  await addCmsMenuItem({
     label: stringValue(formData, 'label'),
     href: stringValue(formData, 'href'),
     order: Number(stringValue(formData, 'order')) || undefined,
