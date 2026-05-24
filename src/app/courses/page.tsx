@@ -1,7 +1,7 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Clock, MapPin, Search, Send, Tag } from 'lucide-react';
+import { ArrowRight, Search } from 'lucide-react';
 import { admissions, professions } from '../../data/site';
+import CoursesCatalog from './CoursesCatalog';
 import styles from './courses.module.css';
 
 export const metadata = {
@@ -34,76 +34,7 @@ export default function CoursesPage() {
         </div>
       </section>
 
-      <nav className={styles.categoryStrip} aria-label="Фільтр за категоріями">
-        <div className="container">
-          <div className={styles.categoryList}>
-            <a className={styles.categoryActive} href="#catalog">
-              Усі професії
-            </a>
-            {categories.map((category) => (
-              <a key={category} href={`#${category.toLowerCase().replaceAll(' ', '-')}`}>
-                {category}
-              </a>
-            ))}
-          </div>
-        </div>
-      </nav>
-
-      <section className={styles.catalog} id="catalog">
-        <div className="container">
-          {categories.map((category) => (
-            <div className={styles.categoryBlock} id={category.toLowerCase().replaceAll(' ', '-')} key={category}>
-              <div className={styles.categoryHeader}>
-                <Tag size={20} aria-hidden="true" />
-                <h2>{category}</h2>
-              </div>
-              <div className={styles.grid}>
-                {professions.filter((profession) => profession.category === category).map((profession) => (
-                  <article className={styles.card} key={profession.slug}>
-                    <div className={styles.imageWrap}>
-                      <Image
-                        src={profession.image}
-                        alt={`Професія: ${profession.title}`}
-                        width={900}
-                        height={620}
-                      />
-                      <span>{profession.category}</span>
-                    </div>
-                    <div className={styles.cardBody}>
-                      <h3>{profession.title}</h3>
-                      <p>{profession.summary}</p>
-                      <dl className={styles.meta}>
-                        <div>
-                          <Clock size={17} aria-hidden="true" />
-                          <dt>Тривалість</dt>
-                          <dd>{profession.duration}</dd>
-                        </div>
-                        <div>
-                          <MapPin size={17} aria-hidden="true" />
-                          <dt>Формат</dt>
-                          <dd>{profession.format}</dd>
-                        </div>
-                      </dl>
-                      <ul className={styles.skills}>
-                        {profession.skills.map((skill) => <li key={skill}>{skill}</li>)}
-                      </ul>
-                    </div>
-                    <div className={styles.cardActions}>
-                      <Link className="button buttonPrimary" href="/contacts">
-                        <Send size={17} aria-hidden="true" />
-                        Запитати про набір
-                      </Link>
-                      <Link href={`/courses/${profession.slug}`} aria-label={`Опис професії: ${profession.title}`}>
-                        <ArrowRight size={18} aria-hidden="true" />
-                      </Link>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <CoursesCatalog professions={professions} categories={categories} />
 
       <section className={styles.steps}>
         <div className="container">
