@@ -32,6 +32,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
   gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
 }
 
 .info h2,
@@ -118,8 +119,41 @@ a.infoItem:hover {
   resize: vertical;
 }
 
+.mapBlock {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
+  gap: clamp(1.2rem, 3vw, 2rem);
+  align-items: stretch;
+  margin-top: clamp(2rem, 5vw, 4rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  padding: clamp(1rem, 3vw, 1.35rem);
+  box-shadow: 0 12px 30px rgba(23, 32, 42, 0.06);
+}
+
+.mapBlock h2 {
+  margin: 0.45rem 0 0.65rem;
+  color: var(--brand-strong);
+  font-size: clamp(1.45rem, 2.4vw, 2.25rem);
+  line-height: 1.08;
+}
+
+.mapBlock p {
+  color: var(--muted);
+}
+
+.mapBlock iframe {
+  width: 100%;
+  min-height: 360px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--blue-soft);
+}
+
 @media (max-width: 860px) {
-  .grid {
+  .grid,
+  .mapBlock {
     grid-template-columns: 1fr;
   }
 }

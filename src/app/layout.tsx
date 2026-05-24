@@ -1,7 +1,20 @@
 import '../styles/globals.css';
 import type { Metadata } from 'next';
+import { Noto_Sans, Noto_Serif_Display } from 'next/font/google';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+
+const notoSans = Noto_Sans({
+  subsets: ['cyrillic', 'latin'],
+  variable: '--font-family',
+  display: 'swap',
+});
+
+const notoSerifDisplay = Noto_Serif_Display({
+  subsets: ['cyrillic', 'latin'],
+  variable: '--font-display',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://lcptodcz.lviv.ua'),
@@ -25,7 +38,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="uk">
-      <body>
+      <body className={`${notoSans.variable} ${notoSerifDisplay.variable}`}>
         <Header />
         <main id="main-content">{children}</main>
         <Footer />

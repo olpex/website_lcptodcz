@@ -22,6 +22,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# crawl/research output
+.firecrawl/
+
 # local env files
 .env*.local
 

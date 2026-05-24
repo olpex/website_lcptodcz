@@ -115,9 +115,9 @@ export default function Home() {
           <div className={styles.programGrid}>
             {courses.slice(0, 4).map((course) => (
               <article className={styles.programCard} key={course.title}>
-                <span>{course.group}</span>
+                <span>{course.category}</span>
                 <h3>{course.title}</h3>
-                <p>{course.outcome}</p>
+                <p>{course.summary}</p>
                 <dl>
                   <div>
                     <dt>Тривалість</dt>

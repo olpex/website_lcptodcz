@@ -72,6 +72,21 @@ export default function ContactsPage() {
               <button className="button buttonPrimary" type="submit">Надіслати звернення</button>
             </form>
           </div>
+
+          <div className={styles.mapBlock}>
+            <div>
+              <span className="eyebrow">Як нас знайти</span>
+              <h2>вул. Княгині Ольги, 122</h2>
+              <p>Карта відкривається безпосередньо на сторінці, а посилання на Google Maps лишається доступним для побудови маршруту.</p>
+            </div>
+            <iframe
+              title="Карта розташування Львівського центру ПТО ДСЗ"
+              src={contact.embedMapUrl}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </div>
         </div>
       </section>
     </div>

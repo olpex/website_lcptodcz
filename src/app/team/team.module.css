@@ -1,0 +1,232 @@
+.page {
+  background: var(--paper);
+}
+
+.hero,
+.stats,
+.methodology,
+.directory,
+.admin {
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+}
+
+.hero {
+  background: linear-gradient(110deg, #fffdf8, var(--green-soft));
+}
+
+.hero h1 {
+  max-width: 920px;
+  margin: 0.65rem 0 1rem;
+  color: var(--brand-strong);
+  font-size: clamp(2.25rem, 5.5vw, 5rem);
+  line-height: 0.98;
+}
+
+.hero p {
+  max-width: 780px;
+  color: var(--muted);
+  font-size: 1.12rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.statsGrid div,
+.card,
+.adminGroup {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.statsGrid div {
+  display: grid;
+  gap: 0.45rem;
+  min-height: 150px;
+  align-content: start;
+  padding: 1.2rem;
+}
+
+.statsGrid strong {
+  color: var(--brand);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1;
+}
+
+.statsGrid span,
+.copy,
+.card p,
+.adminGroup strong {
+  color: var(--muted);
+}
+
+.methodology {
+  background: var(--brand-strong);
+  color: #fff;
+}
+
+.methodologyGrid {
+  display: grid;
+  grid-template-columns: 0.72fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.methodology svg {
+  color: var(--yellow);
+}
+
+.methodology h2 {
+  margin-top: 1rem;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1.08;
+}
+
+.copy {
+  display: grid;
+  gap: 1rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.department + .department {
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.departmentHeader {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.departmentHeader svg {
+  color: var(--red);
+}
+
+.departmentHeader h2,
+.admin h2 {
+  color: var(--brand-strong);
+  font-size: clamp(1.65rem, 2.7vw, 2.6rem);
+  line-height: 1.08;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.card {
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(23, 32, 42, 0.04);
+}
+
+.card img,
+.placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--blue-soft);
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  color: var(--brand);
+  font-size: 2.4rem;
+  font-weight: 900;
+}
+
+.card div:last-child {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1rem;
+}
+
+.card h3 {
+  color: var(--brand);
+  font-size: 1.32rem;
+  line-height: 1.14;
+}
+
+.card strong {
+  color: var(--ink);
+}
+
+.card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--red);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.admin {
+  padding-bottom: 8rem;
+  background: #f6f8f2;
+}
+
+.admin h2 {
+  max-width: 760px;
+  margin: 0.45rem 0 1.5rem;
+}
+
+.adminGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.adminGroup {
+  padding: 1.1rem;
+}
+
+.adminGroup h3 {
+  margin-bottom: 0.9rem;
+  color: var(--brand);
+  font-size: 1.25rem;
+}
+
+.adminGroup ul {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.adminGroup li {
+  display: grid;
+  gap: 0.18rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.75rem;
+}
+
+.adminGroup span {
+  font-weight: 900;
+}
+
+.adminGroup a {
+  color: var(--red);
+  font-weight: 800;
+}
+
+@media (max-width: 980px) {
+  .statsGrid,
+  .grid,
+  .adminGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .methodologyGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .statsGrid,
+  .grid,
+  .adminGrid {
+    grid-template-columns: 1fr;
+  }
+}
