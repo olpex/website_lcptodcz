@@ -245,7 +245,9 @@
     display: block;
     position: fixed;
     inset: 0;
+    border: none;
     background: rgba(0, 0, 0, 0.35);
     z-index: 35;
+    cursor: default;
   }
 }

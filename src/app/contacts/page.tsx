@@ -75,7 +75,7 @@ export default function ContactsPage() {
               </label>
               <label>
                 Телефон або email
-                <input name="contact" type="text" autoComplete="email" required />
+                <input name="contact" type="text" autoComplete="off" required placeholder="email або номер телефону" />
               </label>
               <label>
                 Повідомлення

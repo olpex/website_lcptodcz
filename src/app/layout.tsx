@@ -18,17 +18,28 @@ const firaSansCondensed = Fira_Sans_Condensed({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://lcptodcz.lviv.ua'),
+  metadataBase: new URL('https://lcptodcz.netlify.app'),
   title: {
     default: 'ЛЦПТО ДСЗ | Професійне навчання у Львові',
     template: '%s | ЛЦПТО ДСЗ',
   },
   description: 'Львівський центр професійно-технічної освіти ДСЗ: професійне навчання дорослих, підвищення кваліфікації, курси для роботодавців та безробітних.',
   openGraph: {
-    title: 'ЛЦПТО ДСЗ',
+    siteName: 'ЛЦПТО ДСЗ',
+    title: 'ЛЦПТО ДСЗ — Професійне навчання у Львові',
     description: 'Практична професійна освіта у Львові для слухачів, роботодавців і громад.',
     locale: 'uk_UA',
     type: 'website',
+    url: 'https://lcptodcz.netlify.app',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'ЛЦПТО ДСЗ — Професійне навчання у Львові',
+    description: 'Практична професійна освіта для дорослих: 17+ професій, безкоштовно за направленням.',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

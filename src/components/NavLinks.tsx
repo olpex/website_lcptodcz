@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
@@ -13,6 +13,13 @@ export default function NavLinks({ items, ctaHref, ctaLabel }: { items: NavItem[
   const [open, setOpen] = useState(false);
 
   const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [open]);
 
   return (
     <>
@@ -32,6 +39,7 @@ export default function NavLinks({ items, ctaHref, ctaLabel }: { items: NavItem[
               <Link
                 href={item.href}
                 className={isActive(item.href) ? styles.active : undefined}
+                aria-current={isActive(item.href) ? 'page' : undefined}
                 onClick={() => setOpen(false)}
               >
                 {item.label}
@@ -44,7 +52,14 @@ export default function NavLinks({ items, ctaHref, ctaLabel }: { items: NavItem[
         </Link>
       </div>
 
-      {open && <div className={styles.overlay} onClick={() => setOpen(false)} />}
+      {open && (
+        <button
+          className={styles.overlay}
+          onClick={() => setOpen(false)}
+          aria-label="Закрити меню"
+          tabIndex={-1}
+        />
+      )}
     </>
   );
 }

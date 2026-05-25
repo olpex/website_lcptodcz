@@ -1,9 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { ArrowRight, BriefcaseBusiness, CheckCircle2, FileText, GraduationCap, Handshake, MapPin, ShieldCheck, Sparkles } from 'lucide-react';
 import { contact, courses, gallery, news } from '../data/site';
 import Reveal from '../components/Reveal';
 import styles from './page.module.css';
+
+export const metadata: Metadata = {
+  title: 'ЛЦПТО ДСЗ | Професійне навчання у Львові',
+  description: 'Львівський центр ПТО ДСЗ — 17+ професій для дорослих: зварювання, транспорт, IT, агросектор, сфера послуг. Безкоштовне навчання за направленням служби зайнятості.',
+  alternates: { canonical: 'https://lcptodcz.netlify.app' },
+};
 
 const audienceCards = [
   {
@@ -178,7 +185,7 @@ export default function Home() {
           <div className={styles.newsGrid}>
             {news.slice(0, 4).map((item) => (
               <a href={item.url} target="_blank" rel="noreferrer" className={styles.newsCard} key={item.title}>
-                <Image src={item.image} alt="" width={420} height={260} />
+                <Image src={item.image} alt={item.title} width={420} height={260} />
                 <div>
                   <time dateTime={item.date.split('.').reverse().join('-')}>{item.date}</time>
                   <h3>{item.title}</h3>
