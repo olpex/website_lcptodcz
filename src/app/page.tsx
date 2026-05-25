@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, BriefcaseBusiness, CheckCircle2, FileText, GraduationCap, Handshake, MapPin, ShieldCheck, Sparkles } from 'lucide-react';
 import { contact, courses, gallery, news } from '../data/site';
+import Reveal from '../components/Reveal';
 import styles from './page.module.css';
 
 const audienceCards = [
@@ -83,6 +84,7 @@ export default function Home() {
         </div>
       </section>
 
+      <Reveal>
       <section className={styles.audience}>
         <div className="container">
           <div className={styles.audienceGrid}>
@@ -100,7 +102,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </Reveal>
 
+      <Reveal>
       <section className={styles.programs}>
         <div className="container">
           <div className={styles.sectionHeader}>
@@ -133,7 +137,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </Reveal>
 
+      <Reveal>
       <section className={styles.why}>
         <div className="container">
           <div className={styles.whyGrid}>
@@ -155,7 +161,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </Reveal>
 
+      <Reveal>
       <section className={styles.news}>
         <div className="container">
           <div className={styles.sectionHeader}>
@@ -180,6 +188,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </Reveal>
     </div>
   );
 }

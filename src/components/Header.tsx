@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { contact, navItems } from '../data/site';
 import { getCmsMenuItems } from '../lib/cms';
+import NavLinks from './NavLinks';
 import styles from './Header.module.css';
 
 const Header = async () => {
@@ -38,14 +39,7 @@ const Header = async () => {
                 <small>Професійна освіта державної служби зайнятості</small>
               </span>
             </Link>
-            <ul className={styles.navLinks}>
-              {menuItems.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href}>{item.label}</Link>
-                </li>
-              ))}
-            </ul>
-            <Link className={styles.navCta} href="/documents">Документи</Link>
+            <NavLinks items={menuItems} ctaHref="/documents" ctaLabel="Документи" />
           </nav>
         </div>
       </div>

@@ -49,10 +49,26 @@
 .contacts p,
 .footerGrid a {
   color: rgba(238, 246, 251, 0.82);
+  transition: color 160ms ease;
 }
 
 .brandBlock p {
   max-width: 520px;
+}
+
+.sourceLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  color: var(--yellow) !important;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.sourceLink:hover {
+  text-decoration: underline !important;
+  text-underline-offset: 0.25em;
 }
 
 .footerGrid ul {
@@ -72,6 +88,12 @@
   gap: 0.55rem;
 }
 
+.contacts a {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 .contacts p {
   display: flex;
   gap: 0.5rem;
@@ -80,7 +102,6 @@
 .contacts svg {
   flex: 0 0 auto;
   color: var(--yellow);
-  margin-top: 0.25rem;
 }
 
 .footerBottom {
