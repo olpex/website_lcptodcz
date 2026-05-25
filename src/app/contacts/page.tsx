@@ -14,7 +14,7 @@ export default function ContactsPage() {
         <div className="container">
           <span className="eyebrow">Контакти</span>
           <h1>Зверніться до центру зручним способом</h1>
-          <p>Актуальні контакти перенесені з чинного сайту й очищені від зайвих технічних блоків.</p>
+          <p>Телефони, електронна пошта, адреса та карта проїзду до центру.</p>
         </div>
       </section>
 
@@ -34,11 +34,19 @@ export default function ContactsPage() {
                 </a>
                 <a href={`tel:${contact.phoneSecondary.replace(/[^\d+]/g, '')}`} className={styles.infoItem}>
                   <Phone aria-hidden="true" />
-                  <span><strong>Методисти</strong>{contact.phoneSecondary}, {contact.phoneMobile}</span>
+                  <span><strong>Методисти</strong>{contact.phoneSecondary}</span>
+                </a>
+                <a href={`tel:+380676720852`} className={styles.infoItem}>
+                  <Phone aria-hidden="true" />
+                  <span><strong>Мобільний</strong>{contact.phoneMobile}</span>
                 </a>
                 <a href={`mailto:${contact.email}`} className={styles.infoItem}>
                   <Mail aria-hidden="true" />
                   <span><strong>Email</strong>{contact.email}</span>
+                </a>
+                <a href="mailto:lcptodcz@gmail.com" className={styles.infoItem}>
+                  <Mail aria-hidden="true" />
+                  <span><strong>Email (додатковий)</strong>lcptodcz@gmail.com</span>
                 </a>
                 <div className={styles.infoItem}>
                   <Building2 aria-hidden="true" />
@@ -55,7 +63,11 @@ export default function ContactsPage() {
               </div>
             </div>
 
-            <form className={styles.form} action={`mailto:${contact.email}`} method="post" encType="text/plain">
+            <form className={styles.form} name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="contact" />
+              <p style={{ display: 'none' }}>
+                <label>Не заповнюйте це поле <input name="bot-field" /></label>
+              </p>
               <h2>Напишіть нам</h2>
               <label>
                 Ваше ім'я

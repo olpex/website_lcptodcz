@@ -53,8 +53,8 @@ export default function Home() {
                   <dd>працюємо для ринку праці</dd>
                 </div>
                 <div>
-                  <dt>6</dt>
-                  <dd>ключових напрямів у першій версії каталогу</dd>
+                  <dt>17+</dt>
+                  <dd>професій та напрямів навчання</dd>
                 </div>
                 <div>
                   <dt>Держ.</dt>
@@ -138,18 +138,19 @@ export default function Home() {
         <div className="container">
           <div className={styles.whyGrid}>
             <div>
-              <span className="eyebrow">Що змінюємо в досвіді сайту</span>
-              <h2>Замість архіву сторінок - зрозумілий маршрут до дії</h2>
+              <span className="eyebrow">Чому обирають наш центр</span>
+              <h2>Професійне навчання з гарантованим результатом</h2>
               <p>
-                Поточний сайт містить цінні новини, контакти й документи, але змішує їх із
-                технічними віджетами. Нова версія піднімає головні сценарії в перший екран.
+                Центр працює в системі Державної служби зайнятості та надає безкоштовне навчання
+                за направленням. Сучасні програми, практика на реальному виробництві, державний документ
+                про кваліфікацію.
               </p>
             </div>
             <ul>
-              <li><CheckCircle2 size={20} aria-hidden="true" /> Перший вибір за роллю користувача: слухач, роботодавець, відвідувач офіційних документів.</li>
-              <li><ShieldCheck size={20} aria-hidden="true" /> Доступні контрасти, видимий фокус, зрозумілі назви посилань і логічна структура заголовків.</li>
-              <li><Sparkles size={20} aria-hidden="true" /> Реальні фото й новини центру замість абстрактних стокових блоків.</li>
-              <li><Handshake size={20} aria-hidden="true" /> Контакти та наступний крок повторюються там, де користувач приймає рішення.</li>
+              <li><CheckCircle2 size={20} aria-hidden="true" /> Безкоштовне навчання за направленням служби зайнятості або за договором.</li>
+              <li><ShieldCheck size={20} aria-hidden="true" /> Свідоцтво державного зразка та посвідчення відповідної категорії.</li>
+              <li><Sparkles size={20} aria-hidden="true" /> Міжнародні проєкти: Skills4Recovery, SEQUA, REMARKET — сучасне обладнання та програми.</li>
+              <li><Handshake size={20} aria-hidden="true" /> Виробнича практика на підприємствах Львівщини та сприяння працевлаштуванню.</li>
             </ul>
           </div>
         </div>
@@ -160,18 +161,21 @@ export default function Home() {
           <div className={styles.sectionHeader}>
             <div>
               <span className="eyebrow">Останні оновлення</span>
-              <h2>Живий центр, а не статична візитка</h2>
+              <h2>Новини центру</h2>
             </div>
+            <a className={styles.textLink} href="https://lcptodcz.lviv.ua/" target="_blank" rel="noreferrer">
+              Усі новини <ArrowRight size={17} aria-hidden="true" />
+            </a>
           </div>
           <div className={styles.newsGrid}>
-            {news.map((item) => (
-              <article className={styles.newsCard} key={item.title}>
+            {news.slice(0, 4).map((item) => (
+              <a href={item.url} target="_blank" rel="noreferrer" className={styles.newsCard} key={item.title}>
                 <Image src={item.image} alt="" width={420} height={260} />
                 <div>
                   <time dateTime={item.date.split('.').reverse().join('-')}>{item.date}</time>
                   <h3>{item.title}</h3>
                 </div>
-              </article>
+              </a>
             ))}
           </div>
         </div>

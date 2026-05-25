@@ -42,10 +42,10 @@ export const contact = {
 
 export const navItems = [
   { href: '/', label: 'Головна' },
+  { href: '/about', label: 'Про центр' },
   { href: '/courses', label: 'Професії' },
+  { href: '/students', label: 'Слухачам' },
   { href: '/employers', label: 'Роботодавцям' },
-  { href: '/team', label: 'Кадри' },
-  { href: '/facilities', label: 'База' },
   { href: '/contacts', label: 'Контакти' },
 ];
 
@@ -437,16 +437,37 @@ export const news = [
     title: 'Знання, що рятують життя',
     date: '13.05.2026',
     image: 'https://rada.info/upload/users_files/36738974/1221de5053f77b71db68bd0f0d925721.png',
+    url: 'https://lcptodcz.lviv.ua/news/10-50-13-11-05-2026/',
   },
   {
     title: 'Перша група завершила навчання з використання агродронів',
     date: '11.05.2026',
     image: 'https://rada.info/upload/users_files/36738974/c37b8cb5296000c082baa3f6c88fabf1.jpg',
+    url: 'https://lcptodcz.lviv.ua/news/10-50-13-11-05-2026/',
+  },
+  {
+    title: 'Перша група в проєкті REMARKET розпочала навчання',
+    date: '04.05.2026',
+    image: 'https://rada.info/upload/users_files/36738974/8f6e3e4f3a5d6ac528cdb8e149486faa.jpg',
+    url: 'https://lcptodcz.lviv.ua/news/13-37-51-04-05-2026/',
   },
   {
     title: 'Курс «Тестувальник програмного забезпечення» у Львові',
     date: '22.04.2026',
     image: 'https://rada.info/upload/users_files/36738974/8f6e3e4f3a5d6ac528cdb8e149486faa.jpg',
+    url: 'https://lcptodcz.lviv.ua/news/',
+  },
+  {
+    title: 'Оцифруйте свій врожай за 5 днів — навчання з агродронів',
+    date: '20.04.2026',
+    image: 'https://rada.info/upload/users_files/36738974/c37b8cb5296000c082baa3f6c88fabf1.jpg',
+    url: 'https://lcptodcz.lviv.ua/news/',
+  },
+  {
+    title: 'SKILLS FACTORY: навчання для переробної промисловості',
+    date: '27.03.2026',
+    image: 'https://rada.info/upload/users_files/36738974/slides/84351624_1382767518580781_5680015827152142336_n.jpg',
+    url: 'https://lcptodcz.lviv.ua/',
   },
 ];
 
